@@ -1,5 +1,5 @@
 {
-  "name": "@alilotfi/trumpsay",
+  "name": "@ali_lotfi/trumpsay",
   "version": "2.0.0",
   "description": "Make your terminal great again with Trump quotes",
   "main": "trumpsay.js",
