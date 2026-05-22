@@ -1,17 +1,32 @@
 name: Publish to npm
+
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
+      
+      - name: Verify package name
+        run: |
+          echo "Package name from package.json:"
+          grep -A0 '"name"' package.json
+      
+      - run: npm cache clean --force
+      
+      - run: npm install
+      
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
