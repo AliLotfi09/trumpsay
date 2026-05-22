@@ -1,11 +1,11 @@
 {
-  "name": "trumpsay",
+  "name": "@alilotfi/trumpsay",
   "version": "2.0.0",
   "description": "Make your terminal great again with Trump quotes",
   "main": "trumpsay.js",
   "type": "module",
   "bin": {
-    "trumpsay": "./trumpsay.js"
+    "trumpsay": "trumpsay.js"
   },
   "scripts": {
     "start": "node trumpsay.js",
